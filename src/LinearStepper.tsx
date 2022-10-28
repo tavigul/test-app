@@ -1,13 +1,15 @@
 // import * as  from 'react';
 import React, {useState} from "react";
-import AgreementText from "./components/Agreement";
-import  TextField  from '@mui/material/TextField';
-import  Typography  from '@mui/material/Typography';
-import  Stepper  from '@mui/material/Stepper';
-import  Step  from '@mui/material/Step';
-import  StepLabel  from '@mui/material/StepLabel';
+import AgreementComponent from "./components/Agreement";
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
 import Box from '@mui/material/Box';
+import Checkbox from '@mui/material/Checkbox';
 import {Form, FormButtons, FormTitle, FormFieldsWrapper, Wrapper} from "./styles/Form";
+import {AgreementText, LinkText} from "./styles/Agreement";
 import {PrimaryButton, OutlinedButton} from "./styles/Button";
 import {
     useForm,
@@ -15,6 +17,7 @@ import {
     FormProvider,
     useFormContext,
 } from "react-hook-form";
+import MenuItem from "@mui/material/MenuItem";
 
 function getSteps() {
     return [
@@ -75,9 +78,14 @@ const CompanyForm = () => {
                             variant="outlined"
                             placeholder="Company of registration"
                             fullWidth
+                            select
                             {...field}
                             margin="dense"
-                        />
+                        >
+                            <MenuItem value="USA">USA</MenuItem>
+                            <MenuItem value="USA">USA</MenuItem>
+                            <MenuItem value="USA">USA</MenuItem>
+                        </TextField>
                     )}
                 />
             </FormFieldsWrapper>
@@ -168,15 +176,21 @@ const ContactPersonForm = () => {
                         name="countryCode"
                         render={({field}) => (
                             <TextField
+                                style={{ width: "60%", paddingRight: "10px" }}
                                 size="small"
                                 id="countryCode"
                                 label="Country code"
                                 variant="outlined"
-                                placeholder="Country code"
+                                // placeholder="Country code"
                                 fullWidth
+                                select
                                 {...field}
                                 margin="dense"
-                            />
+                            >
+                                <MenuItem value="USA">+223</MenuItem>
+                                <MenuItem value="USA">+223</MenuItem>
+                                <MenuItem value="USA">+223</MenuItem>
+                            </TextField>
                         )}
                     />
 
@@ -196,8 +210,24 @@ const ContactPersonForm = () => {
                             />
                         )}
                     />
-                </Box>
 
+
+                </Box>
+               <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 10px 0"}}>
+                   <Checkbox checked/>
+                   <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along with my
+                       submitted personal data shall be used for direct marketing purposes with the aim of sending business
+                       financing proposals targeted and tailored to the aforementioned represented company, by UAB SME Finance,
+                       UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText> </AgreementText>
+               </Box>
+
+                <Box sx={{display: "flex", alignItems: "flex-start", padding: "0px 0 10px 0"}}>
+                    <Checkbox checked/>
+                    <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along with my
+                        submitted personal data shall be used for direct marketing purposes with the aim of sending business
+                        financing proposals targeted and tailored to the aforementioned represented company, by UAB SME Finance,
+                        UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText> </AgreementText>
+                </Box>
 
             </FormFieldsWrapper>
             {/*<Controller*/}
@@ -254,7 +284,7 @@ const Agreement = () => {
         <>
             <FormTitle>Contact person</FormTitle>
             <FormFieldsWrapper>
-                <AgreementText />
+                <AgreementComponent/>
             </FormFieldsWrapper>
         </>
     );
