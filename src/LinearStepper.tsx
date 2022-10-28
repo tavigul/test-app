@@ -1,13 +1,16 @@
 import * as React from 'react';
 import {useState} from "react";
-import {
-    Typography,
-    TextField,
-    Stepper,
-    Step,
-    StepLabel,
-} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import  Typography  from '@mui/material/Typography';
+import  TextField  from '@mui/material/TextField';
+import  Stepper  from '@mui/material/Stepper';
+import  Step  from '@mui/material/Step';
+import  StepLabel  from '@mui/material/StepLabel';
+//     TextField,
+//     Stepper,
+//     Step,
+//     StepLabel,
+// } from "@material-ui";
+// import {makeStyles} from "@material-ui/core/styles";
 import {
     useForm,
     Controller,
@@ -16,17 +19,18 @@ import {
 } from "react-hook-form";
 import {Form, FormButtons, FormTitle, FormFieldsWrapper, Wrapper} from "./styles/Form";
 import {PrimaryButton, OutlinedButton} from "./styles/Button";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, {SelectChangeEvent} from '@mui/material/Select';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select, {SelectChangeEvent} from '@mui/material/Select';
 import Box from '@mui/material/Box';
+import AgreementText from "./components/Agreement"
 
-const useStyles = makeStyles((theme) => ({
-    button: {
-        marginRight: theme.spacing(1),
-    },
-}));
+// const useStyles = makeStyles((theme) => ({
+//     button: {
+//         marginRight: theme.spacing(1),
+//     },
+// }));
 
 function getSteps() {
     return [
@@ -81,6 +85,7 @@ const BasicForm = () => {
                     name="lastName"
                     render={({field}) => (
                         <TextField
+                            size="small"
                             id="last-name"
                             label="Last Name"
                             variant="outlined"
@@ -124,6 +129,7 @@ const ContactForm = () => {
                     name="lastName"
                     render={({field}) => (
                         <TextField
+                            size="small"
                             id="last-name"
                             label="Last Name"
                             variant="outlined"
@@ -140,6 +146,7 @@ const ContactForm = () => {
                     name="lastName"
                     render={({field}) => (
                         <TextField
+                            size="small"
                             id="last-name"
                             label="Last Name"
                             variant="outlined"
@@ -157,6 +164,7 @@ const ContactForm = () => {
                     name="lastName"
                     render={({field}) => (
                         <TextField
+                            size="small"
                             id="last-name"
                             label="Last Name"
                             variant="outlined"
@@ -175,6 +183,7 @@ const ContactForm = () => {
                         name="lastName"
                         render={({field}) => (
                             <TextField
+                                size="small"
                                 id="last-name"
                                 label="Last Name"
                                 variant="outlined"
@@ -191,6 +200,7 @@ const ContactForm = () => {
                         name="lastName"
                         render={({field}) => (
                             <TextField
+                                size="small"
                                 id="last-name"
                                 label="Last Name"
                                 variant="outlined"
@@ -254,6 +264,18 @@ const ContactForm = () => {
         </>
     );
 };
+const Agreement = () => {
+    // const {control} = useFormContext();
+    return (
+        <>
+            <FormTitle>Contact person</FormTitle>
+            <FormFieldsWrapper>
+                <AgreementText />
+            </FormFieldsWrapper>
+        </>
+    );
+};
+
 
 function getStepContent(step: number) {
     switch (step) {
@@ -262,7 +284,7 @@ function getStepContent(step: number) {
         case 1:
             return <ContactForm/>;
         case 2:
-            return <ContactForm/>;
+            return <Agreement/>;
 
         default:
             return "unknown step";
@@ -270,7 +292,7 @@ function getStepContent(step: number) {
 }
 
 const LinearStepper = () => {
-    const classes = useStyles();
+    // const classes = useStyles();
     const methods = useForm({
         defaultValues: {
             firstName: "",
@@ -308,11 +330,9 @@ const LinearStepper = () => {
         //     );
         // }
     };
-
     const handleBack = () => {
         setActiveStep(activeStep - 1);
     };
-
     // const onSubmit = (data) => {
     //   console.log(data);
     // };
