@@ -3,10 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 90%;
   margin: 0 auto;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `
 
 export const FormContainer = styled.div`
@@ -23,4 +19,11 @@ export const FormContainer = styled.div`
   height: fit-content;
   max-height: 80%;
 `;
+
+export const LinearStepperWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+`
 

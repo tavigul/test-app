@@ -353,7 +353,7 @@ const LinearStepper = () => {
             </Stepper>
 
             {activeStep === steps.length ? (
-                <Typography variant="h4" align="center">
+                <Typography variant="h4" align="left">
                     Thank You, we will send you
                 </Typography>
             ) : (

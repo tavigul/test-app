@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const HeaderStyled = styled.header`
-  width: 77%;
+  width: 70%;
   height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   
   @media screen and (max-width: 1024px) {
     width: 100%;
@@ -33,4 +34,12 @@ export const HeaderLink = styled.a`
   letter-spacing: 0;
   color: #2B64F5;
   opacity: 1;
+`
+
+export const HeaderTitles = styled.div`
+  max-width: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `

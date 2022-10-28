@@ -1,7 +1,8 @@
 // import { CssBaseline, Paper, Box } from "@material-ui/core";
 import LinearStepper from "./LinearStepper";
 import GlobalStyles from "./styles/GlobalStyles";
-import { Container } from "./styles/Container.styled"
+import { Container, LinearStepperWrapper } from "./styles/Container.styled"
+import Header from "./components/Header";
 
 function App() {
     return (
@@ -10,8 +11,13 @@ function App() {
             {/*<CssBaseline />*/}
             {/*<Container component={Box}>*/}
                 {/*<Paper component={Box}>*/}
+
             <Container>
+                <Header />
+
+                <LinearStepperWrapper>
                 <LinearStepper />
+                </LinearStepperWrapper>
             </Container>
                 {/*</Paper>*/}
             {/*</Container>  */}
