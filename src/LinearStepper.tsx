@@ -1,36 +1,20 @@
-import * as React from 'react';
-import {useState} from "react";
-import  Typography  from '@mui/material/Typography';
+// import * as  from 'react';
+import React, {useState} from "react";
+import AgreementText from "./components/Agreement";
 import  TextField  from '@mui/material/TextField';
+import  Typography  from '@mui/material/Typography';
 import  Stepper  from '@mui/material/Stepper';
 import  Step  from '@mui/material/Step';
 import  StepLabel  from '@mui/material/StepLabel';
-//     TextField,
-//     Stepper,
-//     Step,
-//     StepLabel,
-// } from "@material-ui";
-// import {makeStyles} from "@material-ui/core/styles";
+import Box from '@mui/material/Box';
+import {Form, FormButtons, FormTitle, FormFieldsWrapper, Wrapper} from "./styles/Form";
+import {PrimaryButton, OutlinedButton} from "./styles/Button";
 import {
     useForm,
     Controller,
     FormProvider,
     useFormContext,
 } from "react-hook-form";
-import {Form, FormButtons, FormTitle, FormFieldsWrapper, Wrapper} from "./styles/Form";
-import {PrimaryButton, OutlinedButton} from "./styles/Button";
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select, {SelectChangeEvent} from '@mui/material/Select';
-import Box from '@mui/material/Box';
-import AgreementText from "./components/Agreement"
-
-// const useStyles = makeStyles((theme) => ({
-//     button: {
-//         marginRight: theme.spacing(1),
-//     },
-// }));
 
 function getSteps() {
     return [
@@ -40,7 +24,7 @@ function getSteps() {
     ];
 }
 
-const BasicForm = () => {
+const CompanyForm = () => {
     const {control} = useFormContext();
     return (
         <>
@@ -48,14 +32,14 @@ const BasicForm = () => {
             <FormFieldsWrapper>
                 <Controller
                     control={control}
-                    name="firstName"
+                    name="companyCode"
                     render={({field}) => (
                         <TextField
                             size="small"
-                            id="first-name"
-                            label="First Name"
+                            id="companyCode"
+                            label="Company code"
                             variant="outlined"
-                            placeholder="Enter Your First Name"
+                            placeholder="Company code"
                             fullWidth
                             {...field}
                             margin="dense"
@@ -65,14 +49,14 @@ const BasicForm = () => {
 
                 <Controller
                     control={control}
-                    name="firstName"
+                    name="companyName"
                     render={({field}) => (
                         <TextField
                             size="small"
-                            id="first-name"
-                            label="First Name"
+                            id="companyName"
+                            label="Company name"
                             variant="outlined"
-                            placeholder="Enter Your First Name"
+                            placeholder="Company name"
                             fullWidth
                             {...field}
                             margin="dense"
@@ -82,14 +66,14 @@ const BasicForm = () => {
 
                 <Controller
                     control={control}
-                    name="lastName"
+                    name="companyRegistration"
                     render={({field}) => (
                         <TextField
                             size="small"
-                            id="last-name"
-                            label="Last Name"
+                            id="companyRegistration"
+                            label="Company of registration"
                             variant="outlined"
-                            placeholder="Enter Your Last Name"
+                            placeholder="Company of registration"
                             fullWidth
                             {...field}
                             margin="dense"
@@ -101,7 +85,7 @@ const BasicForm = () => {
         </>
     );
 };
-const ContactForm = () => {
+const ContactPersonForm = () => {
     const {control} = useFormContext();
     return (
         <>
@@ -109,14 +93,14 @@ const ContactForm = () => {
             <FormFieldsWrapper>
                 <Controller
                     control={control}
-                    name="firstName"
+                    name="name"
                     render={({field}) => (
                         <TextField
                             size="small"
-                            id="first-name"
-                            label="First Name"
+                            id="name"
+                            label="Name"
                             variant="outlined"
-                            placeholder="Enter Your First Name"
+                            placeholder="Name"
                             fullWidth
                             {...field}
                             margin="dense"
@@ -126,14 +110,14 @@ const ContactForm = () => {
 
                 <Controller
                     control={control}
-                    name="lastName"
+                    name="surname"
                     render={({field}) => (
                         <TextField
                             size="small"
-                            id="last-name"
-                            label="Last Name"
+                            id="surname"
+                            label="Surname"
                             variant="outlined"
-                            placeholder="Enter Your Last Name"
+                            placeholder="Surname"
                             fullWidth
                             {...field}
                             margin="dense"
@@ -143,14 +127,14 @@ const ContactForm = () => {
 
                 <Controller
                     control={control}
-                    name="lastName"
+                    name="jobTitle"
                     render={({field}) => (
                         <TextField
                             size="small"
-                            id="last-name"
-                            label="Last Name"
+                            id="jobTitle"
+                            label="Job title"
                             variant="outlined"
-                            placeholder="Enter Your Last Name"
+                            placeholder="Job title"
                             fullWidth
                             {...field}
                             margin="dense"
@@ -161,15 +145,16 @@ const ContactForm = () => {
 
                 <Controller
                     control={control}
-                    name="lastName"
+                    name="email"
                     render={({field}) => (
                         <TextField
                             size="small"
-                            id="last-name"
-                            label="Last Name"
+                            id="email"
+                            label="E-mail address"
                             variant="outlined"
-                            placeholder="Enter Your Last Name"
+                            placeholder="E-mail address"
                             fullWidth
+                            type="email"
                             {...field}
                             margin="dense"
                         />
@@ -180,14 +165,14 @@ const ContactForm = () => {
                 <Box sx={{display: "flex"}}>
                     <Controller
                         control={control}
-                        name="lastName"
+                        name="countryCode"
                         render={({field}) => (
                             <TextField
                                 size="small"
-                                id="last-name"
-                                label="Last Name"
+                                id="countryCode"
+                                label="Country code"
                                 variant="outlined"
-                                placeholder="Enter Your Last Name"
+                                placeholder="Country code"
                                 fullWidth
                                 {...field}
                                 margin="dense"
@@ -197,14 +182,14 @@ const ContactForm = () => {
 
                     <Controller
                         control={control}
-                        name="lastName"
+                        name="phone"
                         render={({field}) => (
                             <TextField
                                 size="small"
-                                id="last-name"
-                                label="Last Name"
+                                id="phone"
+                                label="Phone no."
                                 variant="outlined"
-                                placeholder="Enter Your Last Name"
+                                placeholder="Phone no."
                                 fullWidth
                                 {...field}
                                 margin="dense"
@@ -265,7 +250,6 @@ const ContactForm = () => {
     );
 };
 const Agreement = () => {
-    // const {control} = useFormContext();
     return (
         <>
             <FormTitle>Contact person</FormTitle>
@@ -280,9 +264,9 @@ const Agreement = () => {
 function getStepContent(step: number) {
     switch (step) {
         case 0:
-            return <BasicForm/>;
+            return <CompanyForm/>;
         case 1:
-            return <ContactForm/>;
+            return <ContactPersonForm/>;
         case 2:
             return <Agreement/>;
 
