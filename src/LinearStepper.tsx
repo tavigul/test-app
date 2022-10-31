@@ -23,7 +23,7 @@ function getSteps() {
     return [
         "Product and Amount",
         "Company",
-        "Contact person"
+        // "Contact person"
     ];
 }
 
@@ -108,7 +108,7 @@ const ContactPersonForm = () => {
     // });
     return (
         <>
-            <FormTitle>Company</FormTitle>
+            <FormTitle>Contact Person</FormTitle>
             <FormFieldsWrapper>
                 <Controller
                     control={control}
@@ -223,7 +223,7 @@ const ContactPersonForm = () => {
 
 
                 </Box>
-                <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 10px 0"}}>
+                <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 0 0"}}>
                     <Checkbox checked/>
                     <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along
                         with my
@@ -246,54 +246,7 @@ const ContactPersonForm = () => {
                         UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText>
                     </AgreementText>
                 </Box>
-
             </FormFieldsWrapper>
-            {/*<Controller*/}
-            {/*    control={control}*/}
-            {/*    name="emailAddress"*/}
-            {/*    render={({field}) => (*/}
-            {/*        <TextField*/}
-            {/*            id="email"*/}
-            {/*            label="E-mail"*/}
-            {/*            variant="outlined"*/}
-            {/*            placeholder="Enter Your E-mail Address"*/}
-            {/*            fullWidth*/}
-            {/*            margin="normal"*/}
-            {/*            {...field}*/}
-            {/*        />*/}
-            {/*    )}*/}
-            {/*/>*/}
-
-            {/*<Controller*/}
-            {/*    control={control}*/}
-            {/*    name="phoneNumber"*/}
-            {/*    render={({field}) => (*/}
-            {/*        <TextField*/}
-            {/*            id="phone-number"*/}
-            {/*            label="Phone Number"*/}
-            {/*            variant="outlined"*/}
-            {/*            placeholder="Enter Your Phone Number"*/}
-            {/*            fullWidth*/}
-            {/*            margin="normal"*/}
-            {/*            {...field}*/}
-            {/*        />*/}
-            {/*    )}*/}
-            {/*/>*/}
-            {/*<Controller*/}
-            {/*    control={control}*/}
-            {/*    name="alternatePhone"*/}
-            {/*    render={({field}) => (*/}
-            {/*        <TextField*/}
-            {/*            id="alternate-phone"*/}
-            {/*            label="Alternate Phone"*/}
-            {/*            variant="outlined"*/}
-            {/*            placeholder="Enter Your Alternate Phone"*/}
-            {/*            fullWidth*/}
-            {/*            margin="normal"*/}
-            {/*            {...field}*/}
-            {/*        />*/}
-            {/*    )}*/}
-            {/*/>*/}
         </>
     );
 };
@@ -366,34 +319,28 @@ const LinearStepper = () => {
                 })}
             </Stepper>
 
-            {activeStep === steps.length ? (
-                <Typography variant="h4">
-                    Thank You, we will send you
-                </Typography>
-            ) : (
-                <>
-                    <FormProvider  {...methods}>
-                        <Form onSubmit={methods.handleSubmit(handleNext)}>
-                            {getStepContent(activeStep)}
-                            <FormButtons>
-                                <OutlinedButton
-                                    disabled={activeStep === 0}
-                                    onClick={handleBack}
-                                    type="button"
-                                >
-                                    Back
-                                </OutlinedButton>
-                                <PrimaryButton
-                                    // onClick={handleNext}
-                                    type="submit"
-                                >
-                                    {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                                </PrimaryButton>
-                            </FormButtons>
-                        </Form>
-                    </FormProvider>
-                </>
-            )}
+            <>
+                <FormProvider  {...methods}>
+                    <Form onSubmit={methods.handleSubmit(handleNext)}>
+                        {getStepContent(activeStep)}
+                        <FormButtons>
+                            <OutlinedButton
+                                disabled={activeStep === 0}
+                                onClick={handleBack}
+                                type="button"
+                            >
+                                Back
+                            </OutlinedButton>
+                            <PrimaryButton
+                                // onClick={handleNext}
+                                type="submit"
+                            >
+                                {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                            </PrimaryButton>
+                        </FormButtons>
+                    </Form>
+                </FormProvider>
+            </>
         </Wrapper>
     );
 };

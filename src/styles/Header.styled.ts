@@ -18,6 +18,7 @@ export const Logo = styled.div`
   height: 20px;
   display: flex;
   align-items: center;
+  margin-left: -15px;
 `
 
 export const HeaderTitle = styled.h4`
