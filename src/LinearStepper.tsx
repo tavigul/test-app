@@ -1,4 +1,3 @@
-// import * as  from 'react';
 import React, {useState} from "react";
 import AgreementComponent from "./components/Agreement";
 import TextField from '@mui/material/TextField';
@@ -15,9 +14,10 @@ import {
     useForm,
     Controller,
     FormProvider,
-    useFormContext,
+    useFormContext
 } from "react-hook-form";
 import MenuItem from "@mui/material/MenuItem";
+
 
 function getSteps() {
     return [
@@ -26,6 +26,7 @@ function getSteps() {
         "Contact person"
     ];
 }
+
 
 const CompanyForm = () => {
     const {control} = useFormContext();
@@ -38,14 +39,15 @@ const CompanyForm = () => {
                     name="companyCode"
                     render={({field}) => (
                         <TextField
+                            {...field}
                             size="small"
                             id="companyCode"
                             label="Company code"
                             variant="outlined"
                             placeholder="Company code"
                             fullWidth
-                            {...field}
                             margin="dense"
+                            name="companyCode"
                         />
                     )}
                 />
@@ -55,13 +57,13 @@ const CompanyForm = () => {
                     name="companyName"
                     render={({field}) => (
                         <TextField
+                            {...field}
                             size="small"
                             id="companyName"
                             label="Company name"
                             variant="outlined"
                             placeholder="Company name"
                             fullWidth
-                            {...field}
                             margin="dense"
                         />
                     )}
@@ -95,6 +97,15 @@ const CompanyForm = () => {
 };
 const ContactPersonForm = () => {
     const {control} = useFormContext();
+    // const {
+    //     register,
+    //     control,
+    //     handleSubmit,
+    //     watch,
+    //     formState: { errors },
+    // } = useForm<IFormInputs>({
+    //     resolver: yupResolver(schema),
+    // });
     return (
         <>
             <FormTitle>Company</FormTitle>
@@ -176,12 +187,11 @@ const ContactPersonForm = () => {
                         name="countryCode"
                         render={({field}) => (
                             <TextField
-                                style={{ width: "60%", paddingRight: "10px" }}
+                                style={{width: "60%", paddingRight: "10px"}}
                                 size="small"
                                 id="countryCode"
                                 label="Country code"
                                 variant="outlined"
-                                // placeholder="Country code"
                                 fullWidth
                                 select
                                 {...field}
@@ -213,20 +223,28 @@ const ContactPersonForm = () => {
 
 
                 </Box>
-               <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 10px 0"}}>
-                   <Checkbox checked/>
-                   <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along with my
-                       submitted personal data shall be used for direct marketing purposes with the aim of sending business
-                       financing proposals targeted and tailored to the aforementioned represented company, by UAB SME Finance,
-                       UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText> </AgreementText>
-               </Box>
+                <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 10px 0"}}>
+                    <Checkbox checked/>
+                    <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along
+                        with my
+                        submitted personal data shall be used for direct marketing purposes with the aim of sending
+                        business
+                        financing proposals targeted and tailored to the aforementioned represented company, by UAB SME
+                        Finance,
+                        UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText>
+                    </AgreementText>
+                </Box>
 
                 <Box sx={{display: "flex", alignItems: "flex-start", padding: "0px 0 10px 0"}}>
                     <Checkbox checked/>
-                    <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along with my
-                        submitted personal data shall be used for direct marketing purposes with the aim of sending business
-                        financing proposals targeted and tailored to the aforementioned represented company, by UAB SME Finance,
-                        UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText> </AgreementText>
+                    <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along
+                        with my
+                        submitted personal data shall be used for direct marketing purposes with the aim of sending
+                        business
+                        financing proposals targeted and tailored to the aforementioned represented company, by UAB SME
+                        Finance,
+                        UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText>
+                    </AgreementText>
                 </Box>
 
             </FormFieldsWrapper>
@@ -279,6 +297,7 @@ const ContactPersonForm = () => {
         </>
     );
 };
+
 const Agreement = () => {
     return (
         <>
@@ -290,37 +309,31 @@ const Agreement = () => {
     );
 };
 
-
 function getStepContent(step: number) {
     switch (step) {
         case 0:
             return <CompanyForm/>;
         case 1:
             return <ContactPersonForm/>;
-        case 2:
-            return <Agreement/>;
-
         default:
             return "unknown step";
     }
 }
 
 const LinearStepper = () => {
-    // const classes = useStyles();
     const methods = useForm({
         defaultValues: {
-            firstName: "",
-            lastName: "",
-            nickName: "",
-            emailAddress: "",
-            phoneNumber: "",
-            alternatePhone: "",
-            address1: "",
-            address2: "",
-            country: "",
-            cardNumber: "",
-            cardMonth: "",
-            cardYear: "",
+            companyCode: "",
+            companyName: "",
+            countryRegistration: "",
+            name: "",
+            surname: "",
+            jobTitle: "",
+            email: "",
+            countryCode: "",
+            phone: "",
+            checkbox: "",
+            checkboxTwo: "",
         },
     });
     const [activeStep, setActiveStep] = useState(0);
@@ -329,20 +342,6 @@ const LinearStepper = () => {
     const handleNext = (data: any) => {
         setActiveStep(activeStep + 1);
         console.log(data);
-
-        // if (activeStep == steps.length - 1) {
-        //     fetch("https://jsonplaceholder.typicode.com/comments")
-        //         .then((data) => data.json())
-        //         .then((res) => {
-        //             console.log(res);
-        //             setActiveStep(activeStep + 1);
-        //         });
-        // } else {
-        //     setActiveStep(activeStep + 1);
-        //     setSkippedSteps(
-        //         skippedSteps.filter((skipItem) => skipItem !== activeStep)
-        //     );
-        // }
     };
     const handleBack = () => {
         setActiveStep(activeStep - 1);
@@ -350,6 +349,7 @@ const LinearStepper = () => {
     // const onSubmit = (data) => {
     //   console.log(data);
     // };
+
     return (
         <Wrapper>
             <Stepper alternativeLabel activeStep={activeStep} orientation="vertical">
@@ -367,7 +367,7 @@ const LinearStepper = () => {
             </Stepper>
 
             {activeStep === steps.length ? (
-                <Typography variant="h4" align="left">
+                <Typography variant="h4">
                     Thank You, we will send you
                 </Typography>
             ) : (
@@ -376,7 +376,6 @@ const LinearStepper = () => {
                         <Form onSubmit={methods.handleSubmit(handleNext)}>
                             {getStepContent(activeStep)}
                             <FormButtons>
-
                                 <OutlinedButton
                                     disabled={activeStep === 0}
                                     onClick={handleBack}

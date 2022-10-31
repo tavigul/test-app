@@ -6,10 +6,11 @@ export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
   
-  
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
+    justify-content: center;
   }
 `
 
@@ -42,4 +43,7 @@ export const HeaderTitles = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
