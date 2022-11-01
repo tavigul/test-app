@@ -1,4 +1,4 @@
-import {HeaderStyled, Logo, HeaderTitle, HeaderLink, HeaderTitles} from "../styles/Header.styled.js";
+import {HeaderStyled, Logo, HeaderTitle, HeaderLink, HeaderTitles} from "./Header.styled.js";
 
 
 function Header() {

@@ -1,4 +1,4 @@
-import {AgreementText, ScrollContainer} from "../styles/Agreement";
+import {AgreementText, ScrollContainer} from "./AgreementStyled";
 
 const Agreement = () => {
     return (

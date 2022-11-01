@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import AgreementComponent from "./components/Agreement";
+import Agreement from "./components/Agreement/Agreement";
 import TextField from '@mui/material/TextField';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -7,7 +7,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import {Form, FormButtons, FormTitle, FormFieldsWrapper, Wrapper} from "./styles/Form";
-import {AgreementText, LinkText} from "./styles/Agreement";
+import {AgreementText, LinkText} from "./components/Agreement/AgreementStyled";
 import {PrimaryButton, OutlinedButton} from "./styles/Button";
 import {
     useForm,
@@ -16,7 +16,7 @@ import {
     useFormContext
 } from "react-hook-form";
 import MenuItem from "@mui/material/MenuItem";
-import Agreement from "./components/Agreement";
+// import CompanyForm from "./components/CompanyForm";
 
 function getSteps() {
     return [
@@ -25,11 +25,11 @@ function getSteps() {
     ];
 }
 
-
 const CompanyForm = () => {
     const {control} = useFormContext();
     return (
         <>
+            {/*{control.map(home => <div>{home.id}</div>)}*/}
             <FormTitle>Company</FormTitle>
             <FormFieldsWrapper>
                 <Controller
@@ -92,6 +92,7 @@ const CompanyForm = () => {
         </>
     );
 };
+
 const ContactPersonForm = () => {
     const {control} = useFormContext();
 
@@ -100,9 +101,8 @@ const ContactPersonForm = () => {
             <>
                 <FormTitle>Contact person</FormTitle>
                 <FormFieldsWrapper>
-                    <AgreementComponent/>
+                    <Agreement/>
                 </FormFieldsWrapper>
-                <h1>cmsdcmsdkl</h1>
             </>
         );
     }
@@ -125,6 +125,7 @@ const ContactPersonForm = () => {
                             {...field}
                             margin="dense"
                         />
+
                     )}
                 />
                 <Controller
@@ -245,7 +246,6 @@ const ContactPersonForm = () => {
     );
 };
 
-
 function getStepContent(step: number) {
     switch (step) {
         case 0:
@@ -270,9 +270,7 @@ const LinearStepper = () => {
             jobTitle: "",
             email: "",
             countryCode: "",
-            phone: "",
-            checkbox: "",
-            checkboxTwo: "",
+            phone: ""
         },
     });
     const [activeStep, setActiveStep] = useState(0);
@@ -288,6 +286,10 @@ const LinearStepper = () => {
     // const onSubmit = (data) => {
     //   console.log(data);
     // };
+    const onSubmit = (data: any) => {
+        console.log(JSON.stringify(data, null, 2));
+    };
+
     return (
         <Wrapper>
             <Stepper alternativeLabel activeStep={activeStep} orientation="vertical">
