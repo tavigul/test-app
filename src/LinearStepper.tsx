@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import AgreementComponent from "./components/Agreement";
 import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
@@ -17,13 +16,12 @@ import {
     useFormContext
 } from "react-hook-form";
 import MenuItem from "@mui/material/MenuItem";
-
+import Agreement from "./components/Agreement";
 
 function getSteps() {
     return [
         "Product and Amount",
         "Company",
-        // "Contact person"
     ];
 }
 
@@ -91,21 +89,24 @@ const CompanyForm = () => {
                     )}
                 />
             </FormFieldsWrapper>
-
         </>
     );
 };
 const ContactPersonForm = () => {
     const {control} = useFormContext();
-    // const {
-    //     register,
-    //     control,
-    //     handleSubmit,
-    //     watch,
-    //     formState: { errors },
-    // } = useForm<IFormInputs>({
-    //     resolver: yupResolver(schema),
-    // });
+
+    function Agreement() {
+        return (
+            <>
+                <FormTitle>Contact person</FormTitle>
+                <FormFieldsWrapper>
+                    <AgreementComponent/>
+                </FormFieldsWrapper>
+                <h1>cmsdcmsdkl</h1>
+            </>
+        );
+    }
+
     return (
         <>
             <FormTitle>Contact Person</FormTitle>
@@ -126,7 +127,6 @@ const ContactPersonForm = () => {
                         />
                     )}
                 />
-
                 <Controller
                     control={control}
                     name="surname"
@@ -143,7 +143,6 @@ const ContactPersonForm = () => {
                         />
                     )}
                 />
-
                 <Controller
                     control={control}
                     name="jobTitle"
@@ -160,8 +159,6 @@ const ContactPersonForm = () => {
                         />
                     )}
                 />
-
-
                 <Controller
                     control={control}
                     name="email"
@@ -179,8 +176,6 @@ const ContactPersonForm = () => {
                         />
                     )}
                 />
-
-
                 <Box sx={{display: "flex"}}>
                     <Controller
                         control={control}
@@ -220,8 +215,6 @@ const ContactPersonForm = () => {
                             />
                         )}
                     />
-
-
                 </Box>
                 <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 0 0"}}>
                     <Checkbox checked/>
@@ -231,7 +224,8 @@ const ContactPersonForm = () => {
                         business
                         financing proposals targeted and tailored to the aforementioned represented company, by UAB SME
                         Finance,
-                        UAB SME Finance Leasing and UAB SME Bank. <LinkText>Please, click to expand</LinkText>
+                        UAB SME Finance Leasing and UAB SME Bank.
+                        <LinkText onClick={Agreement}>Please, click to expand</LinkText>
                     </AgreementText>
                 </Box>
 
@@ -251,16 +245,6 @@ const ContactPersonForm = () => {
     );
 };
 
-const Agreement = () => {
-    return (
-        <>
-            <FormTitle>Contact person</FormTitle>
-            <FormFieldsWrapper>
-                <AgreementComponent/>
-            </FormFieldsWrapper>
-        </>
-    );
-};
 
 function getStepContent(step: number) {
     switch (step) {
@@ -268,6 +252,8 @@ function getStepContent(step: number) {
             return <CompanyForm/>;
         case 1:
             return <ContactPersonForm/>;
+        case 2:
+            return <Agreement/>;
         default:
             return "unknown step";
     }
@@ -302,7 +288,6 @@ const LinearStepper = () => {
     // const onSubmit = (data) => {
     //   console.log(data);
     // };
-
     return (
         <Wrapper>
             <Stepper alternativeLabel activeStep={activeStep} orientation="vertical">
@@ -318,7 +303,6 @@ const LinearStepper = () => {
                     );
                 })}
             </Stepper>
-
             <>
                 <FormProvider  {...methods}>
                     <Form onSubmit={methods.handleSubmit(handleNext)}>

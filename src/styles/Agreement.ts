@@ -10,16 +10,10 @@ export const AgreementText = styled.p`
   padding-right: 10px;
 `
 
-export const AgreementTextCheckbox = styled.p`
-  font-size: 12px;
-  letter-spacing: 0;
-  color: #B2B2B2;
-  opacity: 1;
-  padding-left: 10px;
-`
-
-export const LinkText = styled.a`
+export const LinkText = styled.button`
   color: #2B64F5;
+  border: none;
+  background-color: transparent;
 `
 
 export const ScrollContainer = styled.div`
