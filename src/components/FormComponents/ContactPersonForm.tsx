@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import {AgreementText, LinkText} from "../Agreement/AgreementStyled";
+import {AgreementText, LinkText} from "../AgreementComponents/AgreementStyled";
 
 const formValidHelper = {
     name: {
@@ -34,6 +34,10 @@ const formValidHelper = {
         pattern: "Invalid phone"
     },
     acceptTerms: {
+        required: "Accept Terms is required",
+        pattern: "Invalid phone"
+    },
+    acceptTermsTwo: {
         required: "Accept Terms is required",
         pattern: "Invalid phone"
     }
@@ -228,15 +232,17 @@ const ContactPersonForm = () => {
                 <Box sx={{display: "flex", alignItems: "flex-start", padding: "0px 0 10px 0"}}>
                     <Controller
                         control={control}
-                        name="agreementTwo"
+                        name="acceptTermsTwo"
                         defaultValue={false}
-                        render={({field: {value, onChange, ...field}}) => (
+                        render={({field: {value, onChange, ...field}, fieldState: {error}}) => (
                             <FormControlLabel
                                 control={
                                     <Checkbox onChange={onChange} checked={value} {...field} />
                                 }
-                                label=""
-                            />
+                                label={error ? formValidHelper.acceptTermsTwo[error.type] : ""}
+                                error={error ? formValidHelper.acceptTermsTwo[error.type] : ""}
+                            >
+                            </FormControlLabel>
                         )}
                     />
                     <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along
