@@ -1,11 +1,11 @@
-# React, TS Stepper + Multistep form
+# React, TS Multistep form + Stepper  
 
 Technical Frontend Task for SMEFInance - New Application Form. Stack: React.js, TypeScript, MUI (UI library), Styled-components (CSS-in-JS library).
 
 Features
 ------------
 
-* **Clean, intuitive design** — Inspired by your design XD and [Google's](https://mui.com) and [Styled Components](http://styled-components.com) API docs.
+* **Clean, intuitive design** — Inspired by your design XD and [Google's MUI library](https://mui.com) and [Styled Components](http://styled-components.com) API docs.
 * **Multiple forms with React-hook-forms integrated with MUI UI library** — [react-hook-form](https://react-hook-form.com/get-started#IntegratingwithUIlibraries)
 * **Vertical stepper** — Thanks to the stepper, you can find out the progress of filling out the form
 
@@ -13,9 +13,7 @@ Features
 
 Use the package manager [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) to install dependencies.
 
-```bash
-npm install
-```
+### `npm i` or ### `npm install`
 
 ## Usage
 
@@ -29,4 +27,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+Questions? Need Help? Found a bug?
+--------------------
+
+Hello dear employer!
+It would be great to get feedback from you :)
+
+Looking forward to hearing from you!
 
