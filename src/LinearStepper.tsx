@@ -63,6 +63,10 @@ const formValidHelper = {
         required: "Phone is required",
         pattern: "Invalid phone"
     },
+    acceptTerms: {
+        required: "Accept Terms is required",
+        pattern: "Invalid phone"
+    }
 };
 
 const CompanyForm = () => {
@@ -262,6 +266,7 @@ const ContactPersonForm = () => {
                         }}
                         render={({field, fieldState: {error}}) => (
                             <TextField
+                                {...field}
                                 style={{width: "60%", paddingRight: "10px"}}
                                 size="small"
                                 id="countryCode"
@@ -269,7 +274,6 @@ const ContactPersonForm = () => {
                                 variant="outlined"
                                 fullWidth
                                 select
-                                {...field}
                                 margin="dense"
                                 error={!!error}
                                 helperText={error ? formValidHelper.countryCode[error.type] : ""}
@@ -289,13 +293,13 @@ const ContactPersonForm = () => {
                         }}
                         render={({field, fieldState: {error}}) => (
                             <TextField
+                                {...field}
                                 size="small"
                                 id="phone"
                                 label="Phone no."
                                 variant="outlined"
                                 placeholder="Phone no."
                                 fullWidth
-                                {...field}
                                 margin="dense"
                                 error={!!error}
                                 helperText={error ? formValidHelper.phone[error.type] : ""}
@@ -306,18 +310,20 @@ const ContactPersonForm = () => {
                 <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 0 0"}}>
                     <Controller
                         control={control}
-                        name="agreementOne"
                         defaultValue={false}
-                        render={({field: {value, onChange, ...field}}) => (
+                        name="acceptTerms"
+                        rules={{
+                            required: true
+                        }}
+                        render={({field: {value, onChange, ...field}, fieldState: {error}}) => (
                             <FormControlLabel
                                 control={
                                     <Checkbox onChange={onChange} checked={value} {...field} />
-                                    // <FormHelperText error={error ? formValidHelper.email[error.type] : ""}
-                                    // </FormHelperText>
                                 }
-                                label=""
-                            />
-
+                                // label={error ? formValidHelper.acceptTerms[error.type] : ""}
+                                error={error ? formValidHelper.acceptTerms[error.type] : ""}
+                            >
+                            </FormControlLabel>
                         )}
                     />
                     <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along
