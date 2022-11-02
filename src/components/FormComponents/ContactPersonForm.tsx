@@ -8,7 +8,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import {AgreementText, LinkText} from "../AgreementComponents/AgreementStyled";
 
-const formValidHelper = {
+const formValidHelper: {[index: string]:any} = {
     name: {
         required: "Name is required",
         pattern: "Invalid user name"

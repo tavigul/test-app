@@ -5,10 +5,7 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import {Form, FormButtons, Wrapper} from "../components/FormComponents/Form";
 import {PrimaryButton, OutlinedButton} from "../styles/Button";
-import {
-    useForm,
-    FormProvider,
-} from "react-hook-form";
+import {useForm, FormProvider} from "react-hook-form";
 import CompanyForm from "../components/FormComponents/CompanyForm";
 import ContactPerson from "../components/FormComponents/ContactPersonForm";
 
@@ -52,7 +49,7 @@ const LinearStepper = () => {
     const [activeStep, setActiveStep] = useState(0);
     const steps = getSteps();
 
-    const handleNext = (data: any) => {
+    const handleNext = (data: {[index: string]:any}) => {
         setActiveStep(activeStep + 1);
         console.log("handleNext data", data);
     };
@@ -62,7 +59,7 @@ const LinearStepper = () => {
     return (
         <Wrapper>
             <Stepper alternativeLabel activeStep={activeStep} orientation="vertical">
-                {steps.map((step, index) => {
+                {steps.map((step: string, index: number) => {
                     const stepProps: { completed?: boolean } = {};
                     const labelProps: {
                         optional?: React.ReactNode;
