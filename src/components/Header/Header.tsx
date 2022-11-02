@@ -1,6 +1,5 @@
 import {HeaderStyled, Logo, HeaderTitle, HeaderLink, HeaderTitles} from "./Header.styled.js";
 
-
 function Header() {
     return (
         <>

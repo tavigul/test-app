@@ -20,48 +20,46 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 100%;
 
-  .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiStepIcon-root.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
-    display: none;
-  }
+  @media screen and (min-width: 1024px) {
+    .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiStepIcon-root.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
+      display: none;
+    }
 
-  .css-8t49rw-MuiStepConnector-line {
-    display: none;
-  }
+    .css-8t49rw-MuiStepConnector-line {
+      display: none;
+    }
 
-  .css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
-    margin: 0;
-    border-color: #bdbdbd;
-    border-left-style: solid;
-    border-left-width: 3px;
-    min-height: 39px;
-    display: flex;
-    align-items: center;
-  }
+    .css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+      margin: 0;
+      border-color: #bdbdbd;
+      border-left-style: solid;
+      border-left-width: 3px;
+      min-height: 39px;
+      display: flex;
+      align-items: center;
+    }
 
-  .css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel.Mui-active {
-    color: #1976d2;
-  }
+    .css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel.Mui-active {
+      color: #1976d2;
+    }
 
-  .css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
-    padding-left: 25px;
-  }
+    .css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+      padding-left: 25px;
+    }
 
-  .css-14sza3e-MuiStepLabel-root {
-    padding: 1px 0;
+    .css-14sza3e-MuiStepLabel-root {
+      padding: 1px 0;
+    }
   }
-
 
   @media screen and (max-width: 1024px) {
     flex-direction: column;
     margin-right: 0;
-  }
-
-  .MuiPaper-root {
-    background-color: transparent;
-  }
-
-  .MuiStepLabel-root.MuiStepLabel-alternativeLabel {
-    flex-direction: row;
+    justify-content: space-between;
+    height: 70%;
+    .MuiStepper-root.MuiStepper-vertical.MuiStepper-alternativeLabel.css-11r6j1z-MuiStepper-root {
+      flex-direction: row;
+    }
   }
 `
 
@@ -73,14 +71,9 @@ export const FormFieldsWrapper = styled.div`
   @media screen and (max-width: 1024px) {
     margin: 10px;
   }
-  
-  //.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
-  //  padding: 0 10px 0 0;
-  //}
-  
+
   .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root {
-    margin: 0;
-    margin-right: 10px;
+    margin: 0 10px 0 0;
   }
 
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
@@ -96,7 +89,6 @@ export const FormTitle = styled.h5`
 export const FormButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  //padding: 0 40px 84px 40px;
   padding: 0 40px 24px 40px;
   @media screen and (max-width: 1024px) {
     padding: 10px;
