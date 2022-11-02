@@ -436,7 +436,6 @@ const LinearStepper = () => {
                                 Back
                             </OutlinedButton>
                             <PrimaryButton
-                                // onClick={handleNext}
                                 type="submit"
                             >
                                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
