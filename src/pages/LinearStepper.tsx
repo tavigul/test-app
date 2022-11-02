@@ -25,6 +25,8 @@ const LinearStepper = () => {
                 return <ContactPerson/>;
             case 2:
                 return <Agreement/>;
+            case 3:
+                return <p>{}</p>
             default:
                 return "unknown step";
         }
@@ -51,7 +53,6 @@ const LinearStepper = () => {
 
     const handleNext = (data: {[index: string]:any}) => {
         setActiveStep(activeStep + 1);
-        console.log("handleNext data", data);
     };
     const handleBack = () => {
         setActiveStep(activeStep - 1);
