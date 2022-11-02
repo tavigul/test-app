@@ -16,7 +16,8 @@ import {
     useFormContext
 } from "react-hook-form";
 import MenuItem from "@mui/material/MenuItem";
-// import CompanyForm from "./components/CompanyForm";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
 
 function getSteps() {
     return [
@@ -25,17 +26,59 @@ function getSteps() {
     ];
 }
 
+const formValidHelper = {
+    companyCode: {
+        required: "Company code is required",
+        pattern: "Invalid Company code"
+    },
+    companyName: {
+        required: "Company name is required",
+        pattern: "Invalid Company name"
+    },
+    companyRegistration: {
+        required: "Company registration is required",
+        pattern: "Invalid Company registration"
+    },
+    name: {
+        required: "Name is required",
+        pattern: "Invalid user name"
+    },
+    surname: {
+        required: "Surname is required",
+        pattern: "Invalid surname"
+    },
+    jobTitle: {
+        required: "Job title is required",
+        pattern: "Invalid job title"
+    },
+    email: {
+        required: "Email is required",
+        pattern: "Invalid Email address"
+    },
+    countryCode: {
+        required: "Country Code is required",
+        pattern: "Invalid Country code"
+    },
+    phone: {
+        required: "Phone is required",
+        pattern: "Invalid phone"
+    },
+};
+
 const CompanyForm = () => {
     const {control} = useFormContext();
     return (
         <>
-            {/*{control.map(home => <div>{home.id}</div>)}*/}
             <FormTitle>Company</FormTitle>
             <FormFieldsWrapper>
                 <Controller
                     control={control}
                     name="companyCode"
-                    render={({field}) => (
+                    defaultValue=""
+                    rules={{
+                        required: true,
+                    }}
+                    render={({field, fieldState: {error}}) => (
                         <TextField
                             {...field}
                             size="small"
@@ -46,6 +89,8 @@ const CompanyForm = () => {
                             fullWidth
                             margin="dense"
                             name="companyCode"
+                            error={!!error}
+                            helperText={error ? formValidHelper.companyCode[error.type] : ""}
                         />
                     )}
                 />
@@ -53,7 +98,10 @@ const CompanyForm = () => {
                 <Controller
                     control={control}
                     name="companyName"
-                    render={({field}) => (
+                    rules={{
+                        required: true,
+                    }}
+                    render={({field, fieldState: {error}}) => (
                         <TextField
                             {...field}
                             size="small"
@@ -63,6 +111,8 @@ const CompanyForm = () => {
                             placeholder="Company name"
                             fullWidth
                             margin="dense"
+                            error={!!error}
+                            helperText={error ? formValidHelper.companyName[error.type] : ""}
                         />
                     )}
                 />
@@ -70,8 +120,12 @@ const CompanyForm = () => {
                 <Controller
                     control={control}
                     name="companyRegistration"
-                    render={({field}) => (
+                    rules={{
+                        required: true,
+                    }}
+                    render={({field, fieldState: {error}}) => (
                         <TextField
+                            {...field}
                             size="small"
                             id="companyRegistration"
                             label="Company of registration"
@@ -79,8 +133,9 @@ const CompanyForm = () => {
                             placeholder="Company of registration"
                             fullWidth
                             select
-                            {...field}
                             margin="dense"
+                            error={!!error}
+                            helperText={error ? formValidHelper.companyRegistration[error.type] : ""}
                         >
                             <MenuItem value="USA">USA</MenuItem>
                             <MenuItem value="USA">USA</MenuItem>
@@ -114,16 +169,21 @@ const ContactPersonForm = () => {
                 <Controller
                     control={control}
                     name="name"
-                    render={({field}) => (
+                    rules={{
+                        required: true,
+                    }}
+                    render={({field, fieldState: {error}}) => (
                         <TextField
+                            {...field}
                             size="small"
                             id="name"
                             label="Name"
                             variant="outlined"
                             placeholder="Name"
                             fullWidth
-                            {...field}
                             margin="dense"
+                            error={!!error}
+                            helperText={error ? formValidHelper.name[error.type] : ""}
                         />
 
                     )}
@@ -131,39 +191,53 @@ const ContactPersonForm = () => {
                 <Controller
                     control={control}
                     name="surname"
-                    render={({field}) => (
+                    rules={{
+                        required: true,
+                    }}
+                    render={({field, fieldState: {error}}) => (
                         <TextField
+                            {...field}
                             size="small"
                             id="surname"
                             label="Surname"
                             variant="outlined"
                             placeholder="Surname"
                             fullWidth
-                            {...field}
                             margin="dense"
+                            error={!!error}
+                            helperText={error ? formValidHelper.surname[error.type] : ""}
                         />
                     )}
                 />
                 <Controller
                     control={control}
                     name="jobTitle"
-                    render={({field}) => (
+                    rules={{
+                        required: true,
+                    }}
+                    render={({field, fieldState: {error}}) => (
                         <TextField
+                            {...field}
                             size="small"
                             id="jobTitle"
                             label="Job title"
                             variant="outlined"
                             placeholder="Job title"
                             fullWidth
-                            {...field}
                             margin="dense"
+                            error={!!error}
+                            helperText={error ? formValidHelper.jobTitle[error.type] : ""}
                         />
                     )}
                 />
                 <Controller
                     control={control}
                     name="email"
-                    render={({field}) => (
+                    rules={{
+                        required: true,
+                        pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+                    }}
+                    render={({field, fieldState: {error}}) => (
                         <TextField
                             size="small"
                             id="email"
@@ -174,6 +248,8 @@ const ContactPersonForm = () => {
                             type="email"
                             {...field}
                             margin="dense"
+                            error={!!error}
+                            helperText={error ? formValidHelper.email[error.type] : ""}
                         />
                     )}
                 />
@@ -181,7 +257,10 @@ const ContactPersonForm = () => {
                     <Controller
                         control={control}
                         name="countryCode"
-                        render={({field}) => (
+                        rules={{
+                            required: true
+                        }}
+                        render={({field, fieldState: {error}}) => (
                             <TextField
                                 style={{width: "60%", paddingRight: "10px"}}
                                 size="small"
@@ -192,6 +271,8 @@ const ContactPersonForm = () => {
                                 select
                                 {...field}
                                 margin="dense"
+                                error={!!error}
+                                helperText={error ? formValidHelper.countryCode[error.type] : ""}
                             >
                                 <MenuItem value="USA">+223</MenuItem>
                                 <MenuItem value="USA">+223</MenuItem>
@@ -203,7 +284,10 @@ const ContactPersonForm = () => {
                     <Controller
                         control={control}
                         name="phone"
-                        render={({field}) => (
+                        rules={{
+                            required: true
+                        }}
+                        render={({field, fieldState: {error}}) => (
                             <TextField
                                 size="small"
                                 id="phone"
@@ -213,12 +297,29 @@ const ContactPersonForm = () => {
                                 fullWidth
                                 {...field}
                                 margin="dense"
+                                error={!!error}
+                                helperText={error ? formValidHelper.phone[error.type] : ""}
                             />
                         )}
                     />
                 </Box>
                 <Box sx={{display: "flex", alignItems: "flex-start", padding: "20px 0 0 0"}}>
-                    <Checkbox checked/>
+                    <Controller
+                        control={control}
+                        name="agreementOne"
+                        defaultValue={false}
+                        render={({field: {value, onChange, ...field}}) => (
+                            <FormControlLabel
+                                control={
+                                    <Checkbox onChange={onChange} checked={value} {...field} />
+                                    // <FormHelperText error={error ? formValidHelper.email[error.type] : ""}
+                                    // </FormHelperText>
+                                }
+                                label=""
+                            />
+
+                        )}
+                    />
                     <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along
                         with my
                         submitted personal data shall be used for direct marketing purposes with the aim of sending
@@ -231,7 +332,19 @@ const ContactPersonForm = () => {
                 </Box>
 
                 <Box sx={{display: "flex", alignItems: "flex-start", padding: "0px 0 10px 0"}}>
-                    <Checkbox checked/>
+                    <Controller
+                        control={control}
+                        name="agreementTwo"
+                        defaultValue={false}
+                        render={({field: {value, onChange, ...field}}) => (
+                            <FormControlLabel
+                                control={
+                                    <Checkbox onChange={onChange} checked={value} {...field} />
+                                }
+                                label=""
+                            />
+                        )}
+                    />
                     <AgreementText>I hereby agree that all data submitted herein regarding the company I represent along
                         with my
                         submitted personal data shall be used for direct marketing purposes with the aim of sending
@@ -246,20 +359,22 @@ const ContactPersonForm = () => {
     );
 };
 
-function getStepContent(step: number) {
-    switch (step) {
-        case 0:
-            return <CompanyForm/>;
-        case 1:
-            return <ContactPersonForm/>;
-        case 2:
-            return <Agreement/>;
-        default:
-            return "unknown step";
-    }
-}
 
 const LinearStepper = () => {
+    function getStepContent(step: number) {
+        switch (step) {
+            case 0:
+                return <CompanyForm/>;
+            case 1:
+                return <ContactPersonForm/>;
+            case 2:
+                return <Agreement/>;
+            default:
+                return "unknown step";
+        }
+    }
+
+
     const methods = useForm({
         defaultValues: {
             companyCode: "",
@@ -273,12 +388,13 @@ const LinearStepper = () => {
             phone: ""
         },
     });
+
     const [activeStep, setActiveStep] = useState(0);
     const steps = getSteps();
 
     const handleNext = (data: any) => {
         setActiveStep(activeStep + 1);
-        console.log(data);
+        console.log("handleNext data", data);
     };
     const handleBack = () => {
         setActiveStep(activeStep - 1);
@@ -286,10 +402,6 @@ const LinearStepper = () => {
     // const onSubmit = (data) => {
     //   console.log(data);
     // };
-    const onSubmit = (data: any) => {
-        console.log(JSON.stringify(data, null, 2));
-    };
-
     return (
         <Wrapper>
             <Stepper alternativeLabel activeStep={activeStep} orientation="vertical">

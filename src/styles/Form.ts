@@ -74,8 +74,17 @@ export const FormFieldsWrapper = styled.div`
     margin: 10px;
   }
   
-  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
-    padding: 0 10px 0 0;
+  //.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+  //  padding: 0 10px 0 0;
+  //}
+  
+  .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root {
+    margin: 0;
+    margin-right: 10px;
+  }
+
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+    padding: 0;
   }
 `
 
