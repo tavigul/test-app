@@ -1,18 +1,17 @@
-import LinearStepper from "./LinearStepper";
+import LinearStepper from "./pages/LinearStepper";
 import GlobalStyles from "./styles/GlobalStyles";
-import {Container, LinearStepperWrapper} from "./styles/Container.styled"
-import Header from "./components/Header/Header";
+import {LinearStepperWrapper} from "./styles/Container.styled"
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
     return (
         <>
             <GlobalStyles/>
-            <Container>
-                <Header/>
+            <MainLayout>
                 <LinearStepperWrapper>
                     <LinearStepper/>
                 </LinearStepperWrapper>
-            </Container>
+            </MainLayout>
         </>
     );
 }

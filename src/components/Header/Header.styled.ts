@@ -15,9 +15,13 @@ export const HeaderStyled = styled.header`
 
 export const Logo = styled.div`
   height: 20px;
+  width: 15px;
   display: flex;
   align-items: center;
   margin-left: -15px;
+  img {
+    height: 18px;
+  }
 `
 
 export const HeaderTitle = styled.h4`

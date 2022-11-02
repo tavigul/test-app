@@ -1,16 +1,16 @@
 import React, {useState} from "react";
-import Agreement from "./components/AgreementComponents/Agreement";
+import Agreement from "../components/AgreementComponents/Agreement";
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import {Form, FormButtons, Wrapper} from "./components/FormComponents/Form";
-import {PrimaryButton, OutlinedButton} from "./styles/Button";
+import {Form, FormButtons, Wrapper} from "../components/FormComponents/Form";
+import {PrimaryButton, OutlinedButton} from "../styles/Button";
 import {
     useForm,
     FormProvider,
 } from "react-hook-form";
-import CompanyForm from "./components/FormComponents/CompanyForm";
-import ContactPerson from "./components/FormComponents/ContactPersonForm";
+import CompanyForm from "../components/FormComponents/CompanyForm";
+import ContactPerson from "../components/FormComponents/ContactPersonForm";
 
 function getSteps() {
     return [

@@ -2,17 +2,15 @@ import {HeaderStyled, Logo, HeaderTitle, HeaderLink, HeaderTitles} from "./Heade
 
 function Header() {
     return (
-        <>
-            <HeaderStyled>
-                <Logo>
-                    <img src="/src/assets/images/logo.svg" alt="logo" style={{height: "18px"}}/>
-                </Logo>
-                <HeaderTitles>
-                    <HeaderTitle>Application</HeaderTitle>
-                    <HeaderLink>Fill in later</HeaderLink>
-                </HeaderTitles>
-            </HeaderStyled>
-        </>
+        <HeaderStyled>
+            <Logo>
+                <img src="/src/assets/images/logo.svg" alt="logo"/>
+            </Logo>
+            <HeaderTitles>
+                <HeaderTitle>Application</HeaderTitle>
+                <HeaderLink>Fill in later</HeaderLink>
+            </HeaderTitles>
+        </HeaderStyled>
     )
 }
 
