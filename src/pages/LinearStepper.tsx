@@ -25,8 +25,6 @@ const LinearStepper = () => {
                 return <ContactPerson/>;
             case 2:
                 return <Agreement/>;
-            case 3:
-                return <p>{}</p>
             default:
                 return "unknown step";
         }
