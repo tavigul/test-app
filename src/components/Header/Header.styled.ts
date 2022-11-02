@@ -22,6 +22,9 @@ export const Logo = styled.div`
   img {
     height: 18px;
   }
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+  }
 `
 
 export const HeaderTitle = styled.h4`
