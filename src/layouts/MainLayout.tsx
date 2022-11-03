@@ -1,4 +1,4 @@
-import {Container} from "../styles/Container.styled"
+import {Container} from "./Container.styled"
 import Header from "../components/Header/Header";
 import React, {FC, ReactNode} from "react";
 
