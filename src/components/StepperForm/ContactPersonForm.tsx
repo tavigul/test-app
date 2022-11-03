@@ -8,7 +8,22 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import {AgreementText, LinkText} from "../AgreementComponents/AgreementStyled";
 
-const formValidHelper: {[index: string]:any} = {
+export type CommonObjectType = {
+    [key: string]: string
+}
+
+export type MainObjectStatic = {
+    name: CommonObjectType;
+    surname: CommonObjectType;
+    jobTitle: CommonObjectType;
+    email: CommonObjectType;
+    countryCode: CommonObjectType;
+    phone: CommonObjectType;
+    acceptTerms: CommonObjectType;
+    acceptTermsTwo: CommonObjectType;
+}
+
+const formValidHelper: MainObjectStatic = {
     name: {
         required: "Name is required",
         pattern: "Invalid user name"
@@ -81,7 +96,6 @@ const ContactPersonForm = () => {
                             error={!!error}
                             helperText={error ? formValidHelper.name[error.type] : ""}
                         />
-
                     )}
                 />
                 <Controller
@@ -237,10 +251,9 @@ const ContactPersonForm = () => {
                         render={({field: {value, onChange, ...field}, fieldState: {error}}) => (
                             <FormControlLabel
                                 control={
-                                    <Checkbox onChange={onChange} checked={value} {...field} />
+                                    <Checkbox onChange={onChange} checked={value} {...field}  />
                                 }
                                 label={error ? formValidHelper.acceptTermsTwo[error.type] : ""}
-                                error={error ? formValidHelper.acceptTermsTwo[error.type] : ""}
                             >
                             </FormControlLabel>
                         )}

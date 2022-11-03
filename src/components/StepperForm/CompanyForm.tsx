@@ -1,13 +1,23 @@
-import React from "react";
+import React, {FC} from "react";
 import {Controller, useFormContext} from "react-hook-form";
 import {FormFieldsWrapper, FormTitle} from "./Form";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 
 
-const formValidHelper: {[index: string]:any} = {
+export type CommonObjectType = {
+    [key: string]: string
+}
+
+export type MainObjectStatic = {
+    companyCode: CommonObjectType;
+    companyName: CommonObjectType;
+    companyRegistration: CommonObjectType;
+}
+
+const formValidHelper: MainObjectStatic = {
     companyCode: {
-        required: "Company code is required",
+        required: 'Company code is required',
         pattern: "Invalid Company code"
     },
     companyName: {
@@ -20,8 +30,8 @@ const formValidHelper: {[index: string]:any} = {
     }
 };
 
-const CompanyForm = () => {
 
+const CompanyForm = () => {
     const methods = useFormContext();
     return (
         <>

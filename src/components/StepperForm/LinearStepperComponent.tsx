@@ -3,10 +3,10 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import {FormProvider, useForm} from "react-hook-form";
-import {Form, FormButtons} from "../FormComponents/Form";
+import {Form, FormButtons} from "./Form";
 import {OutlinedButton, PrimaryButton} from "../Button/Button";
-import CompanyForm from "../FormComponents/CompanyForm";
-import ContactPerson from "../FormComponents/ContactPersonForm";
+import CompanyForm from "./CompanyForm";
+import ContactPerson from "./ContactPersonForm";
 import Agreement from "../AgreementComponents/Agreement";
 
 function getSteps() {
@@ -54,7 +54,7 @@ function LinearStepperComponent() {
 
     const handleNext = (data: { [index: string]: any }) => {
         setActiveStep(activeStep + 1);
-        console.log("data", data)
+        console.log("Multistep form data", data)
     };
 
     const handleBack = () => {

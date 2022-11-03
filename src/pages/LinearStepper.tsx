@@ -1,4 +1,4 @@
-import {Wrapper} from "../components/FormComponents/Form";
+import {Wrapper} from "../components/StepperForm/Form";
 import LinearStepperComponent from "../components/StepperForm/LinearStepperComponent";
 
 const LinearStepper = () => {
